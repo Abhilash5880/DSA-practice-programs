@@ -39,7 +39,7 @@ void enqueue (struct queue* Q)
         printf("Enter value to add to queue\n");
         scanf("%d",&n);
         Q->b++; //incrementing back pointer first
-        Q->arr[Q->b]=n; //then adding element teh new position
+        Q->arr[Q->b]=n; //then adding element the new position
         printf("Element %d added to the queue\n",n);
         return;
     }
