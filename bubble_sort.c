@@ -10,8 +10,8 @@ typedef struct array
 
 struct array* bubble(struct array* A)
 {
-   for (int i=0; i<A->size-1; i++) //will conduct 'a->size' number of of passes to arrange each element
-   { //'size-1' passes are enough. (because by the end, tthe lowest integer will be at index 0)
+   for (int i=0; i<A->size-1; i++) //will conduct 'a->size-1' number of of passes to arrange each element
+   { //'size-1' passes are enough. (because by the end, the lowest integer will be at index 0)
        for(int j=0; j<(A->size)-1-i; j++) //will run till the 2nd last element of each 'pass' since in each pass, the largest element will be sent at the end
 
        {
