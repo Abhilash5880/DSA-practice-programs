@@ -44,7 +44,7 @@ struct array* insert(struct array* A) {
         return A;
     }
 
-    printf("Enter element at which element is to be inserted:\n");
+    printf("Enter element to be inserted:\n");
     scanf("%d", &n);
     
     for (int i = A->size; i > pos; i--) {
