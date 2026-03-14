@@ -6,7 +6,7 @@ typedef struct array
     int max_size;
     int size;
     int *arr;
-}array;
+}array;//struct array
 
 void insertion (struct array* A)
 {

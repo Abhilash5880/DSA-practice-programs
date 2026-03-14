@@ -8,8 +8,8 @@ typedef struct Node
     struct Node* next;
 } Node; // Using typedef for simplicity
 
-// Function to push an element onto the stack
-// Returns the new head of the stack
+//Function to push an element onto the stack
+//Returns the new head of the stack
 struct Node* push(struct Node* head)
 {
     int x;

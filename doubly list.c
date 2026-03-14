@@ -3,21 +3,21 @@
 struct node
 {
 	int data;
-	struct node *prev;
-	struct node *next;
+	struct node *prev;//previous
+	struct node *next;//next
 };
 
-struct node* insertatend(struct node* head, int x)
+struct node* insertatend(struct node* head, int x)//insertion at the end of the list
 {
-	struct node* ptr=(struct node*)malloc(sizeof(struct node));
+	struct node* ptr=(struct node*)malloc(sizeof(struct node)); //create a new node and allocate memory for it
 	if(ptr==NULL)
 	{
-		printf("Memory allocation failure! Cannot add element %d.\n",x);
+		printf("Memory allocation failure! Cannot add element %d.\n",x); //check if memory allocation was successful
 		return head;
 	}
-	ptr->data=x;
+	ptr->data=x; //assign the value of 'x' to the data field of the new node
 	ptr->next=NULL;
-	if(head==NULL)
+	if(head==NULL) //if the list is empty, the new node becomes the head of the list
 	{
 		ptr->prev=NULL;
 		printf("Success! Head element %d added.\n", x);
@@ -25,7 +25,7 @@ struct node* insertatend(struct node* head, int x)
 	}
 	else
 	{
-	    struct node* p=head;
+	    struct node* p=head; //traverse the list to find the last node (the node whose 'next' is NULL)
 	    while(p->next!=NULL)
 	    {
 		   p=p->next;
@@ -46,12 +46,12 @@ void traversal(struct node* head)
 	}
 	while(p!=NULL)
 	{
-		printf("Element is : %d\n",p->data);
+		printf("Element is : %d\n",p->data);//print the data of the current node
 		p=p->next;
 	}
 	printf("NULL\n");
 }
-struct node* insertatindex (struct node* head)
+struct node* insertatindex (struct node* head)//insertion at a given index
 {
 	int index,x,i=0;
 	printf("enter the index at which to insert element :\n");
@@ -71,8 +71,8 @@ struct node* insertatindex (struct node* head)
 	if (index == 0) 
 	{
         ptr->next = head;
-        if (head != NULL) 
-		{ // If list is not empty, update old head's prev
+        if (head != NULL) // If list is not empty, update old head's prev
+		{ 
             head->prev = ptr;
         }
         printf("Success! Element %d inserted at the beginning.\n", x);

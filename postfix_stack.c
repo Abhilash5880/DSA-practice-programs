@@ -78,7 +78,7 @@ char* infixToPostfix(char* infix){
     sp->size = 10; 
     sp->top = -1;
     sp->arr = (char *) malloc(sp->size * sizeof(char));
-    char * postfix = (char *) malloc((strlen(infix)+1) * sizeof(char));
+    char * postfix = (char *) malloc((strlen(infix)+1) * sizeof(char));// +1 for null character
     int i=0; // Track infix traversal
     int j = 0; // Track postfix addition 
     while (infix[i]!='\0')

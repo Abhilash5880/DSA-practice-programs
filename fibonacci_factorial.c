@@ -1,4 +1,4 @@
-// A C program to demonstrate recursion for
+
 // Fibonacci series and factorial calculation.
 
 #include <stdio.h>
