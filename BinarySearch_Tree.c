@@ -7,16 +7,19 @@ struct node{
     struct node* right;
 };
 
-struct node* createNode(int data){
+struct node* createNode(int data)
+{
     struct node *n; // creating a node pointer
     n = (struct node *) malloc(sizeof(struct node)); // Allocating memory in the heap
     n->data = data; // Setting the data
     n->left = NULL; // Setting the left and right children to NULL
     n->right = NULL; // Setting the left and right children to NULL
+
     return n; // Finally returning the created node
 }
-
-void preOrder(struct  node* root){
+//PREORDER
+void preOrder(struct  node* root)
+{
     if(root!=NULL){
         printf("%d ", root->data);
         preOrder(root->left);
@@ -24,7 +27,9 @@ void preOrder(struct  node* root){
     }
 }
 
-void postOrder(struct  node* root){
+//POSTORDER
+void postOrder(struct  node* root)
+{
     if(root!=NULL){
         postOrder(root->left);
         postOrder(root->right);
@@ -32,6 +37,7 @@ void postOrder(struct  node* root){
     }
 }
 
+//INORDER
 void inOrder(struct  node* root){
     if(root!=NULL){
         inOrder(root->left);
@@ -43,7 +49,8 @@ void inOrder(struct  node* root){
 int isBST(struct  node* root){
     static struct node *prev = NULL;
     if(root!=NULL){
-        if(!isBST(root->left)){
+        if(!isBST(root->left))
+        {
             return 0;
         }
         if(prev!=NULL && root->data <= prev->data){

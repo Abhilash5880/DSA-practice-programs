@@ -1,4 +1,4 @@
-// will be implemented as a circular array
+//Double ended Queue(DEQueue): will be implemented as a circular array
 #include<stdio.h>
 #include<stdlib.h>
 struct queue
@@ -20,7 +20,7 @@ int isFull(struct queue* Q)
 
 int isEmpty(struct queue* Q)
 {
-    if(Q->b==Q->f)
+    if(Q->b==Q->f)//both 'f' & 'b' are at same position
     {
        return 1;
     }

@@ -3,15 +3,15 @@
 
 struct queue
 {
-    int size;
-    int f;
-    int b;
-    int *arr;
+    int size;//max size of the queue
+    int f;//front of the queue
+    int b;//back of the queue
+    int *arr;//array to hold the queue elements
 };
 
 int isFull(struct queue* Q)
 {
-  if((Q->b+1)%Q->size==Q->f) //circular increment
+  if((Q->b+1)%Q->size==Q->f) //modulo expression - here 'b' is right at the end of the queue so 1 more element cannot be added, so it is full. (circular queue)
   {
     return 1;
   }
@@ -20,7 +20,7 @@ int isFull(struct queue* Q)
 
 int isEmpty(struct queue* Q)
 {
-    if(Q->b==Q->f)
+    if(Q->b==Q->f) //both 'f' & 'b' are at same position
     {
        return 1;
     }
@@ -45,7 +45,7 @@ void enqueue (struct queue* Q)
     }
 }
 
-int dequeue (struct queue* Q)
+int dequeue (struct queue* Q)//returns the value removed from the queue
 {
     if(isEmpty(Q))
     {
@@ -54,7 +54,7 @@ int dequeue (struct queue* Q)
     else
     {
         int val;
-        Q->f=(Q->f+1)%Q->size;
+        Q->f=(Q->f+1)%Q->size;//circular increment
         val=Q->arr[Q->f];
         printf("Element %d removed from queue.\n",val);
         return val;

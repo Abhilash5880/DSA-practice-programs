@@ -15,10 +15,11 @@ typedef struct
 void createArray(Array *a)
 {
     printf("Enter the maximum size of the array: ");
-    scanf("%d", &a->max_size);
+    scanf("%d", &a->max_size);// store it in the 'max_size' field of the Array structure
 
     // Dynamically allocate memory for the array
     a->arr = (int *)malloc(a->max_size * sizeof(int));
+
     if (a->arr == NULL)
     {
         printf("Memory allocation failed!\n");
@@ -78,6 +79,7 @@ void sortArray(Array *a)
         }
     }
 }
+//bubble sort is not the most efficient sorting algorithm, but it serves the purpose for this demonstration. In practice, you might want to use a more efficient sorting algorithm like quicksort or mergesort for larger arrays.
 
 // The core binary search algorithm implementation
 // Returns the index of the element if found, otherwise returns -1.
