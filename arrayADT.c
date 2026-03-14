@@ -2,44 +2,50 @@
 #include <stdlib.h> 
 
 struct array {
-    int* arr;
-    int size;
-    int max_size;
+    int* arr; //array pointer
+    int size; //current size of the array
+    int max_size; //maximum size of the array
 };
 
-void display(struct array* A) {
+void display(struct array* A) // Function to display the elements of the array
+{
     printf("Elements of the array:\n");
-    for (int i = 0; i < A->size; i++) {
-        printf("%d ", A->arr[i]);
+    for (int i = 0; i < A->size; i++) // Loop through the array and print each element
+    {
+        printf("%d ", A->arr[i]);// Print the current element followed by a space
     }
     printf("\n");
 }
 
-void append(struct array* A) {
+void append(struct array* A) // Function to append elements to the array
+{
     printf("Enter elements:\n");
     
-    
-    for (int i = 0; i < A->size; i++) {
+    for (int i = 0; i < A->size; i++) 
+    {
         int n;
-        scanf("%d", &n);
-        A->arr[i] = n;
+        scanf("%d", &n);// Read an integer from the user and store it in variable 'n'
+        A->arr[i] = n; // Assign the value of 'n' to the current index of the array
     }
     display(A);
 }
 
 
-struct array* insert(struct array* A) {
+struct array* insert(struct array* A) // Function to insert an element at a specific position in the array
+{
     int pos, n;
 
-    if (A->size >= A->max_size) {
+    if (A->size >= A->max_size) // Check if the current size of the array has reached or exceeded the maximum size
+    {
         printf("Maximum size reached... cannot be inserted\n");
         return A; // Return without making changes
     }
 
     printf("Enter position at which element is to be inserted:\n");
-    scanf("%d", &pos);
+    scanf("%d", &pos); // Read the position from the user where the new element should be inserted
 
-    if (pos < 0 || pos > A->size) {
+    if (pos < 0 || pos > A->size) // edge case, index out of bounds
+    {
         printf("Invalid position.\n");
         return A;
     }
@@ -47,8 +53,9 @@ struct array* insert(struct array* A) {
     printf("Enter element to be inserted:\n");
     scanf("%d", &n);
     
-    for (int i = A->size; i > pos; i--) {
-        A->arr[i] = A->arr[i - 1];
+    for (int i = A->size; i > pos; i--) 
+    {
+        A->arr[i] = A->arr[i - 1]; // Shift elements to the right (e.g. when i is at index 5, value at index 4 will be copied to index 5)
     }
     A->arr[pos] = n;    
     A->size++;
@@ -59,7 +66,7 @@ struct array* insert(struct array* A) {
 
 struct array* delete(struct array* A)
 {
-    A->size--;
+    A->size--; // effectively remove the last element
     display(A);
 }
 
@@ -89,6 +96,6 @@ int main() {
     append(&A);
     insert(&A);
     delete(&A);
-    free(A.arr);
+    free(A.arr);// Free the dynamically allocated memory to prevent memory leaks
     return 0;
 }
